@@ -1,0 +1,180 @@
+{
+ "id": 25,
+ "name": "pikachu",
+ "order": 35,
+ "is_default": true,
+ "height": 4,
+ "weight": 60,
+ "base_experience": 112,
+ "friendship": null,
+ "capture_rate": null,
+ "types": [
+  {
+   "slot": 1,
+   "type": {
+    "name": "electric",
+    "url": "https://pokeapi.co/api/v2/type/13/"
+   }
+  }
+ ],
+ "abilities": [
+  {
+   "slot": 1,
+   "is_hidden": false,
+   "ability": {
+    "name": "static",
+    "url": "https://pokeapi.co/api/v2/ability/9/"
+   }
+  },
+  {
+   "slot": 3,
+   "is_hidden": true,
+   "ability": {
+    "name": "lightning-rod",
+    "url": "https://pokeapi.co/api/v2/ability/31/"
+   }
+  }
+ ],
+ "stats": [
+  {
+   "base_stat": 35,
+   "effort": 0,
+   "stat": {
+    "name": "hp",
+    "url": "https://pokeapi.co/api/v2/stat/1/"
+   }
+  },
+  {
+   "base_stat": 55,
+   "effort": 0,
+   "stat": {
+    "name": "attack",
+    "url": "https://pokeapi.co/api/v2/stat/2/"
+   }
+  },
+  {
+   "base_stat": 40,
+   "effort": 0,
+   "stat": {
+    "name": "defense",
+    "url": "https://pokeapi.co/api/v2/stat/3/"
+   }
+  },
+  {
+   "base_stat": 50,
+   "effort": 0,
+   "stat": {
+    "name": "special-attack",
+    "url": "https://pokeapi.co/api/v2/stat/4/"
+   }
+  },
+  {
+   "base_stat": 50,
+   "effort": 0,
+   "stat": {
+    "name": "special-defense",
+    "url": "https://pokeapi.co/api/v2/stat/5/"
+   }
+  },
+  {
+   "base_stat": 90,
+   "effort": 2,
+   "stat": {
+    "name": "speed",
+    "url": "https://pokeapi.co/api/v2/stat/6/"
+   }
+  }
+ ],
+ "forms": [
+  {
+   "name": "pikachu",
+   "url": "https://pokeapi.co/api/v2/pokemon-form/25/"
+  }
+ ],
+ "moves": [
+  {
+   "move": {
+    "name": "mega-punch",
+    "url": "https://pokeapi.co/api/v2/move/5/"
+   }
+  },
+  {
+   "move": {
+    "name": "pay-day",
+    "url": "https://pokeapi.co/api/v2/move/6/"
+   }
+  },
+  {
+   "move": {
+    "name": "thunder-punch",
+    "url": "https://pokeapi.co/api/v2/move/9/"
+   }
+  },
+  {
+   "move": {
+    "name": "slam",
+    "url": "https://pokeapi.co/api/v2/move/21/"
+   }
+  },
+  {
+   "move": {
+    "name": "double-kick",
+    "url": "https://pokeapi.co/api/v2/move/24/"
+   }
+  }
+ ],
+ "game_indices": [
+  {
+   "game_index": 84,
+   "version": {
+    "name": "red",
+    "url": "https://pokeapi.co/api/v2/version/1/"
+   }
+  },
+  {
+   "game_index": 84,
+   "version": {
+    "name": "blue",
+    "url": "https://pokeapi.co/api/v2/version/2/"
+   }
+  },
+  {
+   "game_index": 84,
+   "version": {
+    "name": "yellow",
+    "url": "https://pokeapi.co/api/v2/version/3/"
+   }
+  }
+ ],
+ "growth_rate": null,
+ "sprites": {
+  "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+  "other": {
+   "official-artwork": {
+    "versions": {
+     "generation-i": {
+      "red-and-blue": {
+       "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-blue/25.png"
+      },
+      "red-and-green": {
+       "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/versions/generation-i/red-and-green/25.png"
+      }
+     },
+     "generation-ii": {
+      "gold-and-silver": {
+       "front_default": null
+      }
+     }
+    },
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/25.png",
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+   },
+   "home": {
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/25.png",
+    "front_female": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/female/25.png",
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/25.png",
+    "front_shiny_female": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/female/25.png"
+   }
+  }
+ }
+}

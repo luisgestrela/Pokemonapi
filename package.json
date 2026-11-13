@@ -1,0 +1,39 @@
+{
+  "name": "pokedex-explorer",
+  "version": "1.0.0",
+  "description": "Pokédex Explorer - Web App de consulta à PokéAPI v2 com backend Node.js + Express, cache, favoritos, gateway e frontend temático (atividade de Laboratório de APIs).",
+  "type": "commonjs",
+  "main": "server/index.js",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "micro": "node scripts/run-microservices.js",
+    "gateway": "node gateway/index.js",
+    "svc:catalog": "node services-ms/catalog/index.js",
+    "svc:stats": "node services-ms/stats/index.js",
+    "svc:favorites": "node services-ms/favorites/index.js",
+    "test": "node --test \"tests/unit/*.test.js\" \"tests/api/*.test.js\"",
+    "test:unit": "node --test \"tests/unit/*.test.js\"",
+    "test:api": "node --test \"tests/api/*.test.js\"",
+    "smoke": "node scripts/smoke.js",
+    "micro:dev": "MICRO_WATCH=1 node scripts/run-microservices.js"
+  },
+  "keywords": [
+    "pokeapi",
+    "pokedex",
+    "express",
+    "rest",
+    "microservices",
+    "api-gateway"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  }
+}

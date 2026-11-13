@@ -1,0 +1,138 @@
+{
+ "id": 6,
+ "name": "charizard",
+ "flavor_text_entries": [
+  {
+   "flavor_text": "Spits fire that\nis hot enough to\nmelt boulders.\fKnown to cause\nforest fires\nunintentionally.",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   },
+   "version": {
+    "name": "red",
+    "url": "https://pokeapi.co/api/v2/version/1/"
+   }
+  },
+  {
+   "flavor_text": "Spits fire that\nis hot enough to\nmelt boulders.\fKnown to cause\nforest fires\nunintentionally.",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   },
+   "version": {
+    "name": "blue",
+    "url": "https://pokeapi.co/api/v2/version/2/"
+   }
+  },
+  {
+   "flavor_text": "When expelling a\nblast of super\nhot fire, the red\fflame at the tip\nof its tail burns\nmore intensely.",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   },
+   "version": {
+    "name": "yellow",
+    "url": "https://pokeapi.co/api/v2/version/3/"
+   }
+  },
+  {
+   "flavor_text": "If CHARIZARD be­\ncomes furious, the\nflame at the tip\fof its tail flares\nup in a whitish-\nblue color.",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   },
+   "version": {
+    "name": "gold",
+    "url": "https://pokeapi.co/api/v2/version/4/"
+   }
+  }
+ ],
+ "genera": [
+  {
+   "genus": "Pokémon Llama",
+   "language": {
+    "name": "es",
+    "url": "https://pokeapi.co/api/v2/language/7/"
+   }
+  },
+  {
+   "genus": "Flame Pokémon",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   }
+  }
+ ],
+ "names": [
+  {
+   "name": "Charizard",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   }
+  }
+ ],
+ "generation": {
+  "name": "generation-i",
+  "url": "https://pokeapi.co/api/v2/generation/1/"
+ },
+ "evolution_chain": {
+  "url": "https://pokeapi.co/api/v2/evolution-chain/2/"
+ },
+ "color": {
+  "name": "red",
+  "url": "https://pokeapi.co/api/v2/pokemon-color/8/"
+ },
+ "habitat": {
+  "name": "mountain",
+  "url": "https://pokeapi.co/api/v2/pokemon-habitat/4/"
+ },
+ "shape": {
+  "name": "upright",
+  "url": "https://pokeapi.co/api/v2/pokemon-shape/6/"
+ },
+ "is_legendary": false,
+ "is_mythical": false,
+ "is_baby": false,
+ "capture_rate": 45,
+ "base_happiness": 70,
+ "hatch_counter": 20,
+ "growth_rate": {
+  "name": "medium-slow",
+  "url": "https://pokeapi.co/api/v2/growth-rate/4/"
+ },
+ "egg_groups": [
+  {
+   "name": "monster",
+   "url": "https://pokeapi.co/api/v2/egg-group/1/"
+  },
+  {
+   "name": "dragon",
+   "url": "https://pokeapi.co/api/v2/egg-group/14/"
+  }
+ ],
+ "varieties": [
+  {
+   "is_default": true,
+   "pokemon": {
+    "name": "charizard",
+    "url": "https://pokeapi.co/api/v2/pokemon/6/"
+   }
+  },
+  {
+   "is_default": false,
+   "pokemon": {
+    "name": "charizard-mega-x",
+    "url": "https://pokeapi.co/api/v2/pokemon/10034/"
+   }
+  },
+  {
+   "is_default": false,
+   "pokemon": {
+    "name": "charizard-mega-y",
+    "url": "https://pokeapi.co/api/v2/pokemon/10035/"
+   }
+  }
+ ],
+ "pal_park": null
+}

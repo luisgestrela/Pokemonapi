@@ -1,0 +1,38 @@
+{
+ "id": 31,
+ "name": "lightning-rod",
+ "effect_chance": null,
+ "flavor_text_entries": [
+  {
+   "flavor_text": "Draws electrical moves.",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   },
+   "version_group": {
+    "name": "ruby-sapphire",
+    "url": "https://pokeapi.co/api/v2/version-group/5/"
+   }
+  },
+  {
+   "flavor_text": "Draws electrical moves.",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   },
+   "version_group": {
+    "name": "emerald",
+    "url": "https://pokeapi.co/api/v2/version-group/6/"
+   }
+  }
+ ],
+ "names": [
+  {
+   "name": "ひらいしん",
+   "language": {
+    "name": "ja-hrkt",
+    "url": "https://pokeapi.co/api/v2/language/1/"
+   }
+  }
+ ]
+}

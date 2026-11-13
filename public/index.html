@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pokédex Explorer · Terminal PokéTech</title>
+<meta name="description" content="Pokédex Explorer com catálogo, filtros por 18 tipos, favoritos, comparação e Arena de Batalha baseada nos base stats.">
+<meta name="theme-color" content="#e3350d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23e3350d'/%3E%3Cpath d='M4 50h92' stroke='%230b1020' stroke-width='10'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23f4f7ff' stroke='%230b1020' stroke-width='7'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/theme.css?v=9">
+<link rel="stylesheet" href="/css/app.css?v=9">
+</head>
+<body>
+<a class="skip-link" href="#catalogo">Ir para o catálogo</a>
+
+<div class="deck" data-mode="monolito">
+  <header class="deck-top">
+    <div class="deck-brand">
+      <span class="pokeball" aria-hidden="true"><i></i></span>
+      <div class="brand-text">
+        <p class="brand-kicker">Laboratório de APIs · PokéAPI v2</p>
+        <h1 class="brand-title">Pokédex <span>Explorer</span></h1>
+      </div>
+    </div>
+
+    <div class="deck-lights" role="status" aria-live="polite" aria-label="Estado da aplicação">
+      <span class="light light--red"><b></b><em>API</em></span>
+      <span class="light light--cyan"><b></b><em>Cache</em></span>
+      <span class="light light--yellow"><b></b><em id="mode-label">Monólito</em></span>
+      <span class="light light--green"><b></b><em id="online-label">Offline</em></span>
+    </div>
+
+    <form id="search-form" class="deck-search" role="search" autocomplete="off">
+      <label class="sr-only" for="search">Nome ou número do Pokémon</label>
+      <kbd aria-hidden="true">/</kbd>
+      <input id="search" name="q" type="search" inputmode="search" placeholder="Buscar por nome ou nº (ex.: pikachu ou 25)" aria-describedby="search-help">
+      <button class="btn btn--primary" type="submit">Rastrear</button>
+      <button class="btn btn--ghost" type="button" id="random" title="Sortear um Pokémon (tecla R)" aria-label="Sortear Pokémon aleatório">
+        <span aria-hidden="true">⤫</span> Sortear
+      </button>
+      <p id="search-help" class="sr-only">Digite parte do nome ou o número de Pokédex e pressione Enter.</p>
+      <ul id="suggestions" class="suggestions" role="listbox" aria-label="Sugestões de Pokémon" hidden></ul>
+    </form>
+  </header>
+
+  <div class="deck-body">
+    <aside class="rail rail--filters" aria-labelledby="filters-title">
+      <div class="panel panel--filters">
+        <h2 id="filters-title" class="panel-title">Rastreamento</h2>
+        <p class="panel-hint">Combine tipos, geração e ordenação. A paginação recalcula no servidor.</p>
+
+        <div class="filter-block">
+          <div class="filter-head">
+            <span class="filter-label">Tipagem elemental</span>
+            <button class="chip chip--mini" type="button" id="clear-types">limpar</button>
+          </div>
+          <div id="type-filters" class="type-grid" role="group" aria-label="Filtrar catálogo por tipo de Pokémon"></div>
+        </div>
+
+        <div class="filter-block">
+          <label class="field">
+            <span class="field-label">Critério de combinação</span>
+            <select id="match-mode">
+              <option value="any">Qualquer tipo selecionado</option>
+              <option value="all">Todos os tipos selecionados</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="filter-block">
+          <label class="field"><span class="field-label">Geração</span><select id="generation-filter"><option value="">Todas (I a IX)</option></select></label>
+          <label class="field"><span class="field-label">Ordenar por</span><select id="sort-select"><option value="numero-asc">Número de Pokédex ↑</option><option value="numero-desc">Número de Pokédex ↓</option><option value="nome-asc">Nome (A–Z)</option><option value="nome-desc">Nome (Z–A)</option></select></label>
+        </div>
+
+        <div class="filter-block">
+          <label class="field"><span class="field-label">Itens por página</span><select id="page-size"><option value="6">6 cartões</option><option value="12" selected>12 cartões</option><option value="24">24 cartões</option><option value="36">36 cartões</option></select></label>
+        </div>
+
+        <div class="filter-block filter-block--switch">
+          <label class="switch"><input type="checkbox" id="favorites-only"><span class="switch-track" aria-hidden="true"></span><span class="switch-text">Somente favoritos</span></label>
+        </div>
+
+        <div class="readout">
+          <p class="readout-title">Cache do servidor</p>
+          <dl><div><dt>Entradas</dt><dd id="cache-entries">—</dd></div><div><dt>Acertos</dt><dd id="cache-hits">—</dd></div><div><dt>Taxa</dt><dd id="cache-rate">—</dd></div><div><dt>Requisições</dt><dd id="upstream-requests">—</dd></div></dl>
+          <button class="btn btn--small btn--ghost" type="button" id="flush-cache">Limpar cache</button>
+        </div>
+        <button class="btn btn--wide" type="button" id="reset-all">Reiniciar filtros</button>
+      </div>
+    </aside>
+
+    <main class="stage">
+      <section class="panel panel--catalog" id="catalogo" aria-labelledby="catalog-title">
+        <header class="panel-head"><div><h2 id="catalog-title" class="panel-title">Catálogo nacional</h2><p class="panel-hint" id="catalog-summary">Carregando índice da PokéAPI…</p></div><p class="panel-badge" id="catalog-count">—</p></header>
+        <p class="status-line" id="status" role="status" aria-live="polite">Aguardando primeira consulta.</p>
+        <div id="alert" class="alert" role="alert"></div>
+        <div id="catalog" class="cards" aria-live="polite" aria-busy="true"></div>
+        <nav class="pager" aria-label="Paginação do catálogo"><button class="btn btn--ghost" type="button" id="previous">◀ Anterior</button><div id="page-numbers" class="pager-numbers" aria-hidden="true"></div><span class="pager-info"><b id="page-indicator">Página 1 de 1</b><em id="range-indicator"></em></span><button class="btn btn--ghost" type="button" id="next">Próximo ▶</button></nav>
+      </section>
+
+      <section class="panel battle-panel" id="battle-arena" aria-labelledby="battle-title">
+        <header class="panel-head battle-head">
+          <div><p class="battle-kicker">Batalha simulada · tipos e base stats</p><h2 id="battle-title" class="panel-title">Arena de Batalha</h2><p class="panel-hint">Envie dois Pokémon para a arena. A simulação usa base stats, velocidade, tipos e efetividade elemental.</p></div>
+          <span class="panel-badge battle-badge">VS</span>
+        </header>
+        <div id="battle-slots" class="battle-slots" aria-live="polite"></div>
+        <div id="battle-scene" class="battle-scene" aria-live="polite"></div>
+        <div id="battle-result" class="battle-result" role="status" aria-live="polite"><span class="battle-result__icon">⚡</span><p>Escolha dois Pokémon na ficha técnica para iniciar a batalha.</p></div>
+        <div class="battle-actions"><button class="btn btn--battle" type="button" id="battle-fight" disabled>⚔ Batalhar agora</button><button class="btn btn--ghost" type="button" id="battle-random">Sortear rival</button><button class="btn btn--ghost" type="button" id="battle-clear">Limpar arena</button></div>
+      </section>
+    </main>
+
+    <aside class="rail rail--detail" aria-labelledby="detail-title">
+      <div class="panel panel--detail" id="detail-panel"><header class="panel-head"><h2 id="detail-title" class="panel-title">Ficha técnica</h2><span class="panel-badge" id="detail-source">—</span></header><div id="details" class="detail-body" aria-live="polite"><div class="empty"><span class="empty-icon" aria-hidden="true">◍</span><p>Selecione um cartão do catálogo para abrir a ficha completa: tipos, medidas convertidas, habilidades, atributos, espécie e evoluções.</p></div></div></div>
+      <div class="panel panel--favorites"><header class="panel-head"><h2 class="panel-title">Favoritos</h2><span class="panel-badge" id="favorites-count">0</span></header><div id="favorites" class="favorites-body"><p class="muted">Nenhum favorito ainda. Use a estrela na ficha ou o botão <b>Fav</b> do cartão.</p></div><div class="favorites-actions"><button class="btn btn--small btn--ghost" type="button" id="sync-favorites">Sincronizar</button><button class="btn btn--small btn--ghost" type="button" id="clear-favorites">Limpar lista</button></div></div>
+    </aside>
+  </div>
+
+  <footer class="deck-foot"><div class="foot-col"><h3 class="foot-title">Arquitetura em uso</h3><p class="foot-text" id="arch-note">Frontend → Node.js + Express (API Gateway interna) → PokéAPI v2 · somente HTTP GET.</p></div><div class="foot-col"><h3 class="foot-title">Atalhos</h3><p class="foot-text"><kbd>/</kbd> busca · <kbd>R</kbd> sortear · <kbd>←</kbd><kbd>→</kbd> páginas · <kbd>Esc</kbd> fechar ficha</p></div><div class="foot-col"><h3 class="foot-title">Fonte dos dados</h3><p class="foot-text">PokéAPI v2 · sprites oficiais. Favoritos persistem no backend <code>data/favorites.json</code> e espelhados no navegador.</p></div></footer>
+</div>
+
+<div id="overlay" class="overlay"><div class="overlay-card" role="dialog" aria-modal="true" aria-labelledby="overlay-title"><header class="overlay-head"><h2 id="overlay-title" class="panel-title">Comparação lado a lado</h2><button class="btn btn--ghost btn--small" type="button" id="overlay-close" aria-label="Fechar comparação">✕ fechar</button></header><div id="overlay-body" class="overlay-body"></div></div></div>
+<script src="/js/config.js?v=9"></script><script src="/js/api.js?v=9"></script><script src="/js/state.js?v=9"></script><script src="/js/ui.js?v=9"></script><script src="/js/app.js?v=9"></script>
+</body>
+</html>

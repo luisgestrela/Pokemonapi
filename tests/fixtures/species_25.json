@@ -1,0 +1,138 @@
+{
+ "id": 25,
+ "name": "pikachu",
+ "flavor_text_entries": [
+  {
+   "flavor_text": "When several of\nthese POKéMON\ngather, their\felectricity could\nbuild and cause\nlightning storms.",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   },
+   "version": {
+    "name": "red",
+    "url": "https://pokeapi.co/api/v2/version/1/"
+   }
+  },
+  {
+   "flavor_text": "When several of\nthese POKéMON\ngather, their\felectricity could\nbuild and cause\nlightning storms.",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   },
+   "version": {
+    "name": "blue",
+    "url": "https://pokeapi.co/api/v2/version/2/"
+   }
+  },
+  {
+   "flavor_text": "It keeps its tail\nraised to monitor\nits surroundings.\fIf you yank its\ntail, it will try\nto bite you.",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   },
+   "version": {
+    "name": "yellow",
+    "url": "https://pokeapi.co/api/v2/version/3/"
+   }
+  },
+  {
+   "flavor_text": "This intelligent\nPOKéMON roasts\nhard BERRIES with\felectricity to\nmake them tender\nenough to eat.",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   },
+   "version": {
+    "name": "gold",
+    "url": "https://pokeapi.co/api/v2/version/4/"
+   }
+  }
+ ],
+ "genera": [
+  {
+   "genus": "Pokémon Ratón",
+   "language": {
+    "name": "es",
+    "url": "https://pokeapi.co/api/v2/language/7/"
+   }
+  },
+  {
+   "genus": "Mouse Pokémon",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   }
+  }
+ ],
+ "names": [
+  {
+   "name": "Pikachu",
+   "language": {
+    "name": "en",
+    "url": "https://pokeapi.co/api/v2/language/9/"
+   }
+  }
+ ],
+ "generation": {
+  "name": "generation-i",
+  "url": "https://pokeapi.co/api/v2/generation/1/"
+ },
+ "evolution_chain": {
+  "url": "https://pokeapi.co/api/v2/evolution-chain/10/"
+ },
+ "color": {
+  "name": "yellow",
+  "url": "https://pokeapi.co/api/v2/pokemon-color/10/"
+ },
+ "habitat": {
+  "name": "forest",
+  "url": "https://pokeapi.co/api/v2/pokemon-habitat/2/"
+ },
+ "shape": {
+  "name": "quadruped",
+  "url": "https://pokeapi.co/api/v2/pokemon-shape/8/"
+ },
+ "is_legendary": false,
+ "is_mythical": false,
+ "is_baby": false,
+ "capture_rate": 190,
+ "base_happiness": 70,
+ "hatch_counter": 10,
+ "growth_rate": {
+  "name": "medium",
+  "url": "https://pokeapi.co/api/v2/growth-rate/2/"
+ },
+ "egg_groups": [
+  {
+   "name": "ground",
+   "url": "https://pokeapi.co/api/v2/egg-group/5/"
+  },
+  {
+   "name": "fairy",
+   "url": "https://pokeapi.co/api/v2/egg-group/6/"
+  }
+ ],
+ "varieties": [
+  {
+   "is_default": true,
+   "pokemon": {
+    "name": "pikachu",
+    "url": "https://pokeapi.co/api/v2/pokemon/25/"
+   }
+  },
+  {
+   "is_default": false,
+   "pokemon": {
+    "name": "pikachu-rock-star",
+    "url": "https://pokeapi.co/api/v2/pokemon/10080/"
+   }
+  },
+  {
+   "is_default": false,
+   "pokemon": {
+    "name": "pikachu-belle",
+    "url": "https://pokeapi.co/api/v2/pokemon/10081/"
+   }
+  }
+ ],
+ "pal_park": null
+}
